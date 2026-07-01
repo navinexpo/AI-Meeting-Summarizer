@@ -6,7 +6,7 @@ export const metadata = {
   title: 'VoxBrief AI',
   description: 'Production Ready Identity Verification',
 }
-
+// updated the RootLayout component to include the lang attribute in the html tag and added a className to the body tag for styling
 export default function RootLayout({
   children,
 }: {
