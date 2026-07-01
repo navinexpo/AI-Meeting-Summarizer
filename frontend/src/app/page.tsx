@@ -13,7 +13,7 @@ interface Message {
   sender: "user" | "ai";
   text: string;
 }
-
+// Interface for storing conversation history items
 interface HistoryItem {
   id: string;
   fileName: string;
