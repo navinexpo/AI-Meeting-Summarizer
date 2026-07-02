@@ -3,7 +3,7 @@ from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-
+# Load environment variables from a .env file located in the base directory
 class Settings(BaseSettings):
     GROQ_API_KEY: str
     PROJECT_NAME: str = "VoxBrief"
