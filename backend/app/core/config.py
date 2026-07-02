@@ -5,7 +5,7 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "VoxBrief"
      # Configuration for Pydantic settings
     class Config:
-        env_file = ".env"
+        env_file = ".env.example"
         extra = "ignore"
 
 settings = Settings()

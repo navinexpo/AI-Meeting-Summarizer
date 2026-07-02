@@ -15,6 +15,7 @@ class WhisperService:
             translation = self.client.audio.transcriptions.create(
                 file=audio_file,
                 model="whisper-large-v3",
-                response_format="text"
+                response_format="text",
+                language="en"
             )
         return translation
