@@ -16,6 +16,8 @@ class WhisperService:
                 file=audio_file,
                 model="whisper-large-v3",
                 response_format="text",
-                language="en"
+                prompt="Transcribe the lyrics of the song carefully if music is playing.",
+                language="en",
+                temperature=0.0
             )
         return translation

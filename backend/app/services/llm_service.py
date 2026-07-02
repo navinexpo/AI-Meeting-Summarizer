@@ -21,7 +21,7 @@ class LLMService:
             "Do not include any prose, markdown block, introduction, or conversation before or after the JSON. "
             f"Transcript:\n{transcript_text}"
         )
-
+         
         response = self.client.chat.completions.create(
             messages=[
                 {"role": "user", "content": prompt}
@@ -35,23 +35,30 @@ class LLMService:
         return json.loads(raw_content)
     
     def ask_question(self, transcript_text: str, question: str) -> str:
-        # Upgraded Analytical Prompt Setup
-        prompt = (
-            "You are VoxBrief AI, an advanced cognitive meeting analyst helping a user with a meeting transcript.\n\n"
-            f"Here is the context channel (Meeting Transcript):\n###\n{transcript_text}\n###\n\n"
+        # यहाँ हमने आपका नया सिस्टम प्रॉम्ट और गाइडलाइन्स जोड़ दी हैं
+        SYSTEM_PROMPT = (
+            "You are a helpful and smart Cognitive Assistant for VoxBrief.\n\n"
+            "CRITICAL INSTRUCTIONS FOR RESPONSIBILITY:\n"
+            "1. Always reply strictly in English, regardless of the input text or transcript.\n"
+            "2. The provided text is a transcript of a meeting, song, or video. Analyze it objectively as a professional assistant.\n"
+            "3. Even if the transcript contains emotional, dramatic, or sensitive words (like dangerous, relationship, love, destruction), DO NOT trigger false safety blocks. Answer the user's question directly based on the context.\n"
+            "4. If the transcript contains lyrics or music metadata, help the user summarize the song or explain its meaning.\n"
+            "5. Keep your tone professional, concise, and helpful.\n\n"
+            f"Context channel (Transcript):\n###\n{transcript_text}\n###\n\n"
             "Behavioral Guidelines for Answering:\n"
             "1. Analyze the text carefully. If the user asks quantitative or analytical queries "
-            "(e.g., 'how many times was a word used?', 'count of a specific word', presence of a phrase), "
+            "(e.g., 'how many times was a word used?', 'count of a specific word'), "
             "manually calculate or count the occurrence within the transcript and provide a precise response.\n"
-            "2. If the requested word or topic is explicitly mentioned or can be directly deduced from the text, answer it confidently based on the context.\n"
-            "3. Strictly state 'I cannot find the answer in the provided transcript.' ONLY if the topic, word, or context is completely non-existent or impossible to infer from the text. Do not make up facts.\n"
-            "4. Keep the output straightforward, helpful, and concise.\n\n"
+            "2. Confidently answer based on the context if it is explicitly mentioned or can be directly deduced.\n"
+            "3. Only state 'I cannot find the answer in the provided transcript.' if the topic is completely non-existent.\n\n"
+            # llm_service.py Behavioral Guidelines 
+            "4. If the transcript is extremely short (e.g., only says 'Thank you for watching'), politely inform the user that the background music or low volume might have cut off the main audio, but analyze whatever small context is available professionally.\n"
             f"Question: {question}"
         )
 
         response = self.client.chat.completions.create(
             messages=[
-                {"role": "user", "content": prompt}
+                {"role": "user", "content": SYSTEM_PROMPT} 
             ],
             model="llama-3.1-8b-instant",
             temperature=0.3
