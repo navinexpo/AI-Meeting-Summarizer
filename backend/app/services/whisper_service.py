@@ -17,6 +17,7 @@ class WhisperService:
                 model="whisper-large-v3",
                 response_format="text",
                 prompt="Transcribe the lyrics of the song carefully if music is playing.",
+                # Translation parameters
                 language="en",
                 temperature=0.0
             )
