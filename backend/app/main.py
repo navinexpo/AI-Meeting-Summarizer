@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.endpoints import router as api_router
 
 app = FastAPI(title="VoxBrief AI API", version="1.0.0")
-
+# CORS configuration for local development
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
