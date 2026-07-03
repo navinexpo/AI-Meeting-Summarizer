@@ -11,7 +11,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+# Include the API router with a prefix for versioning
 app.include_router(api_router, prefix="/api")
 
 @app.get("/")
