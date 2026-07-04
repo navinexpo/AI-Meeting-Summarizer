@@ -1,10 +1,9 @@
 from pydantic import BaseModel
 from typing import List
-
+# Question request model for asking questions about the meeting transcript
 class QuestionRequest(BaseModel):
     transcript: str
     question: str
-
 class ActionItem(BaseModel):
     task: str
     owner: str
