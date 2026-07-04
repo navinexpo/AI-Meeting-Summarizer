@@ -55,7 +55,7 @@ class LLMService:
             "4. If the transcript is extremely short (e.g., only says 'Thank you for watching'), politely inform the user that the background music or low volume might have cut off the main audio, but analyze whatever small context is available professionally.\n"
             f"Question: {question}"
         )
-
+       # The response from the LLM is expected to be a direct answer to the user's question based on the provided transcript. The SYSTEM_PROMPT ensures that the LLM understands the context and provides a relevant and accurate response, even in cases where the transcript may be limited or contain sensitive content.
         response = self.client.chat.completions.create(
             messages=[
                 {"role": "user", "content": SYSTEM_PROMPT} 
