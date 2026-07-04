@@ -7,7 +7,7 @@ from app.schemas.meeting import QuestionRequest
 router = APIRouter()
 whisper_service = WhisperService()
 llm_service = LLMService()
-
+# Allowed audio and video file extensions and content types
 ALLOWED_EXTENSIONS = {".mp3", ".wav", ".m4a", ".webm", ".mp4", ".mpeg", ".opus"}
 ALLOWED_CONTENT_TYPES = {"audio/", "video/mpeg", "video/mp4"}
 
