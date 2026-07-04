@@ -2,7 +2,7 @@ import os
 import httpx
 from groq import Groq
 from app.core.config import settings
-
+# Update origin in httpx.Client() to match your server's origin if needed
 class WhisperService:
     def __init__(self):
         self.client = Groq(api_key=settings.GROQ_API_KEY, http_client=httpx.Client())
