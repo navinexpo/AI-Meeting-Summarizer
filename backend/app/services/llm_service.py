@@ -30,7 +30,7 @@ class LLMService:
             response_format={"type": "json_object"},
             temperature=0.2
         )
-
+        # Parse the raw JSON content
         raw_content = response.choices[0].message.content
         return json.loads(raw_content)
     
