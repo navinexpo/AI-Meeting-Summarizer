@@ -21,7 +21,7 @@ class LLMService:
             "Do not include any prose, markdown block, introduction, or conversation before or after the JSON. "
             f"Transcript:\n{transcript_text}"
         )
-         
+        # The response from the LLM is expected to be a valid JSON object that adheres to the specified schema. The prompt instructs the model to analyze the transcript and extract key information, ensuring that the output is structured and machine-readable for further processing or display in the application.     
         response = self.client.chat.completions.create(
             messages=[
                 {"role": "user", "content": prompt}
