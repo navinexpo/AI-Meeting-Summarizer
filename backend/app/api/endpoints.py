@@ -38,7 +38,7 @@ async def process_audio(file: UploadFile = File(...)):
             "transcript": transcript,
             "analysis": analysis
         }
-        
+        # The process_audio endpoint handles the upload of audio or video files, validates their format, saves them temporarily, and then uses the WhisperService to transcribe the audio content. The resulting transcript is then analyzed by the LLMService, and both the transcript and analysis are returned in the response.
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
         
