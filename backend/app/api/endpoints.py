@@ -24,7 +24,7 @@ async def process_audio(file: UploadFile = File(...)):
     os.makedirs(temp_dir, exist_ok=True)
     
     temp_file_path = os.path.join(temp_dir, file.filename)
-    
+    # Save the uploaded file to a temporary location for processing
     try:
         with open(temp_file_path, "wb") as f:
             content = await file.read()
