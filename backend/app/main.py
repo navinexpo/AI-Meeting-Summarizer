@@ -16,6 +16,7 @@ app.include_router(api_router, prefix="/api")
 
 @app.get("/")
 def read_root():
+    # Return a simple welcome message
     return {
         "status": "online",
         "project": "VoxBrief AI Meeting Summarizer",
