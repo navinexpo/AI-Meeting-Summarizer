@@ -21,4 +21,5 @@ class WhisperService:
                 language="en",
                 temperature=0.0
             )
+            # The response from the Whisper model is expected to be a text string containing the transcribed content of the audio file. The prompt instructs the model to focus on accurately transcribing lyrics if music is present, ensuring that the output is clear and suitable for further processing or display in the application.
         return translation
