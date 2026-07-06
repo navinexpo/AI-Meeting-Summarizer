@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     GROQ_API_KEY: str
     PROJECT_NAME: str = "VoxBrief"
 
-    # Pydantic v2
+    # Pydantic settings configuration to specify the .env file location and encoding
     model_config = SettingsConfigDict(
         env_file=os.path.join(BASE_DIR, ".env"),
         env_file_encoding="utf-8",
