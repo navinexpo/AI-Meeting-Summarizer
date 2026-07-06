@@ -16,7 +16,7 @@ app.include_router(api_router, prefix="/api")
 
 @app.get("/")
 def read_root():
-    # Return a simple welcome message
+    # Return a simple status message to indicate that the backend server is running and provide basic information about the project. This endpoint can be used for health checks or to verify that the server is operational.
     return {
         "status": "online",
         "project": "VoxBrief AI Meeting Summarizer",
