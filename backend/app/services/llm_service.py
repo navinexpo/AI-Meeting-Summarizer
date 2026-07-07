@@ -30,7 +30,7 @@ class LLMService:
             response_format={"type": "json_object"},
             temperature=0.2
         )
-        
+        # The response from the LLM is expected to be a valid JSON object that adheres to the specified schema. The prompt instructs the model to analyze the transcript and provide a structured summary, key takeaways, and action items without any additional text or formatting.
         raw_content = response.choices[0].message.content
         return json.loads(raw_content)
     
