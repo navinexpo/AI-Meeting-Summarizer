@@ -12,6 +12,7 @@ ALLOWED_EXTENSIONS = {".mp3", ".wav", ".m4a", ".webm", ".mp4", ".mpeg", ".opus"}
 ALLOWED_CONTENT_TYPES = {"audio/", "video/mpeg", "video/mp4"}
 #  Api endpoint to process the uploaded audio
 @router.post("/process")
+# Define an asynchronous function to handle the audio processing
 async def process_audio(file: UploadFile = File(...)):
     file_ext = os.path.splitext(file.filename)[1].lower()
     
@@ -38,7 +39,7 @@ async def process_audio(file: UploadFile = File(...)):
             "transcript": transcript,
             "analysis": analysis
         }
-       # Except block to catch any exceptions during processing and return a 500 error with the exception message
+    
         raise HTTPException(status_code=500, detail=str(e))
         
     finally:
