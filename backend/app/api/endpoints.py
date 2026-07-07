@@ -20,7 +20,7 @@ async def process_audio(file: UploadFile = File(...)):
     
     if file_ext not in ALLOWED_EXTENSIONS and not is_valid_type:
         raise HTTPException(status_code=400, detail="Invalid audio or video format")
-
+    # Create a temporary directory to store the uploaded file for processing
     temp_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../data/storage"))
     os.makedirs(temp_dir, exist_ok=True)
     
