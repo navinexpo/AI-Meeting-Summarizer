@@ -35,7 +35,7 @@ class LLMService:
         return json.loads(raw_content)
     
     def ask_question(self, transcript_text: str, question: str) -> str:
-       # The SYSTEM_PROMPT is constructed to provide clear instructions to the LLM on how to analyze the transcript and answer the user's question. It emphasizes the importance of responding in English, analyzing the transcript objectively, and providing precise answers based on the context.
+   
         SYSTEM_PROMPT = (
             "You are a helpful and smart Cognitive Assistant for VoxBrief.\n\n"
             "CRITICAL INSTRUCTIONS FOR RESPONSIBILITY:\n"
