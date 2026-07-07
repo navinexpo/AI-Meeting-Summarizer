@@ -32,7 +32,7 @@ async def process_audio(file: UploadFile = File(...)):
             
         transcript = whisper_service.transcribe_audio(temp_file_path)
         analysis = llm_service.analyze_transcript(transcript)
-        
+       # Return the transcript and analysis results in a JSON response    
         return {
             "status": "success",
             "transcript": transcript,
