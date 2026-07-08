@@ -15,7 +15,7 @@ ALLOWED_CONTENT_TYPES = {"audio/", "video/mpeg", "video/mp4"}
 # Define an asynchronous function to handle the audio processing
 async def process_audio(file: UploadFile = File(...)):
     file_ext = os.path.splitext(file.filename)[1].lower()
-    
+    # Check if the file content type is allowed
     is_valid_type = any(file.content_type.startswith(t) for t in ALLOWED_CONTENT_TYPES) or file.content_type in ALLOWED_CONTENT_TYPES
     # Check if the file extension is allowed
     if file_ext not in ALLOWED_EXTENSIONS and not is_valid_type:
