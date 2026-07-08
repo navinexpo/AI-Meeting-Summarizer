@@ -10,7 +10,7 @@ llm_service = LLMService()
 
 ALLOWED_EXTENSIONS = {".mp3", ".wav", ".m4a", ".webm", ".mp4", ".mpeg", ".opus"}
 ALLOWED_CONTENT_TYPES = {"audio/", "video/mpeg", "video/mp4"}
-#  Api endpoint to process the uploaded audio
+
 @router.post("/process")
 # Define an asynchronous function to handle the audio processing
 async def process_audio(file: UploadFile = File(...)):
@@ -20,7 +20,7 @@ async def process_audio(file: UploadFile = File(...)):
     
     if file_ext not in ALLOWED_EXTENSIONS and not is_valid_type:
         raise HTTPException(status_code=400, detail="Invalid audio or video format")
-    # Create a temporary directory to store the uploaded file for processing
+  
     temp_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../data/storage"))
     os.makedirs(temp_dir, exist_ok=True)
     
@@ -33,7 +33,7 @@ async def process_audio(file: UploadFile = File(...)):
             
         transcript = whisper_service.transcribe_audio(temp_file_path)
         analysis = llm_service.analyze_transcript(transcript)
-       # Return the transcript and analysis results in a JSON response    
+    
         return {
             "status": "success",
             "transcript": transcript,
