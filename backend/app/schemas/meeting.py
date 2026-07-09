@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List
-
+# Request model for submitting a question about the meeting transcript
 class QuestionRequest(BaseModel):
     transcript: str
     question: str
