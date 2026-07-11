@@ -21,7 +21,7 @@ class LLMService:
             "Do not include any prose, markdown block, introduction, or conversation before or after the JSON. "
             f"Transcript:\n{transcript_text}"
         )
-        
+        # update the model to "llama-3.1-8b-instant" and set the response format to JSON object
         response = self.client.chat.completions.create(
             messages=[
                 {"role": "user", "content": prompt}
