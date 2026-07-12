@@ -63,5 +63,5 @@ class LLMService:
             model="llama-3.1-8b-instant",
             temperature=0.3
         )
-
+      # Return the generated response
         return response.choices[0].message.content
