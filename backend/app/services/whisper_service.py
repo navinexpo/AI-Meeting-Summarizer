@@ -21,5 +21,5 @@ class WhisperService:
                 language="en",
                 temperature=0.0
             )
-          
+          # The translation variable contains the transcribed text from the audio file, which is returned as a string. This allows for further processing or analysis of the transcribed content in other parts of the application.
         return translation
