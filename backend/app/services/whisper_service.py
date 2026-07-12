@@ -10,7 +10,7 @@ class WhisperService:
     def transcribe_audio(self, file_path: str) -> str:
         if not os.path.exists(file_path):
             raise FileNotFoundError("Audio file not found on server")
-      
+      # Audio transcription is performed using the Whisper model, which is designed to handle various audio inputs, including music and speech. The prompt instructs the model to focus on transcribing lyrics if music is detected in the audio file. The response format is set to "text" to receive a plain text transcription of the audio content.
         with open(file_path, "rb") as audio_file:
             translation = self.client.audio.transcriptions.create(
                 file=audio_file,
