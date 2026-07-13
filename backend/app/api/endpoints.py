@@ -15,9 +15,9 @@ ALLOWED_CONTENT_TYPES = {"audio/", "video/mpeg", "video/mp4"}
 # Define an asynchronous function to handle the audio processing
 async def process_audio(file: UploadFile = File(...)):
     file_ext = os.path.splitext(file.filename)[1].lower()
-    # Check if the file content type is allowed
+  
     is_valid_type = any(file.content_type.startswith(t) for t in ALLOWED_CONTENT_TYPES) or file.content_type in ALLOWED_CONTENT_TYPES
-    # Check if the file extension is allowed
+    
     if file_ext not in ALLOWED_EXTENSIONS and not is_valid_type:
         raise HTTPException(status_code=400, detail="Invalid audio or video format")
   
@@ -25,7 +25,7 @@ async def process_audio(file: UploadFile = File(...)):
     os.makedirs(temp_dir, exist_ok=True)
     
     temp_file_path = os.path.join(temp_dir, file.filename)
-    # Save the uploaded file to a temporary location for processing
+   
     try:
         with open(temp_file_path, "wb") as f:
             content = await file.read()
