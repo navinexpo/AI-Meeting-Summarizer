@@ -3,7 +3,7 @@ from fastapi import APIRouter, UploadFile, File, HTTPException
 from app.services.whisper_service import WhisperService
 from app.services.llm_service import LLMService
 from app.schemas.meeting import QuestionRequest
-
+# The code defines an API router for handling audio processing and question answering related to meeting transcripts. It uses the WhisperService to transcribe audio files and the LLMService to analyze the transcript and answer questions. The router includes two endpoints: one for processing audio files and another for asking questions about the transcript. It also includes validation for allowed file types and content types, as well as error handling for various scenarios.
 router = APIRouter()
 whisper_service = WhisperService()
 llm_service = LLMService()
