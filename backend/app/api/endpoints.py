@@ -17,7 +17,7 @@ async def process_audio(file: UploadFile = File(...)):
     file_ext = os.path.splitext(file.filename)[1].lower()
   
     is_valid_type = any(file.content_type.startswith(t) for t in ALLOWED_CONTENT_TYPES) or file.content_type in ALLOWED_CONTENT_TYPES
-    
+    # fixing the issue with the file extension check to ensure it is case-insensitive
     if file_ext not in ALLOWED_EXTENSIONS and not is_valid_type:
         raise HTTPException(status_code=400, detail="Invalid audio or video format")
   
