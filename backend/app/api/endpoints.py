@@ -10,7 +10,7 @@ llm_service = LLMService()
 
 ALLOWED_EXTENSIONS = {".mp3", ".wav", ".m4a", ".webm", ".mp4", ".mpeg", ".opus"}
 ALLOWED_CONTENT_TYPES = {"audio/", "video/mpeg", "video/mp4"}
-
+# Define a POST endpoint to process audio files and return the transcript and analysis
 @router.post("/process")
 # Define an asynchronous function to handle the audio processing
 async def process_audio(file: UploadFile = File(...)):
