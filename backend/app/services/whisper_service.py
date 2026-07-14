@@ -21,5 +21,5 @@ class WhisperService:
                 language="en",
                 temperature=0.0
             )
-         
+        # Return the transcription result as a string 
         return translation
