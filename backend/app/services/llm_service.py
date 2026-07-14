@@ -2,7 +2,7 @@ import json
 import httpx
 from groq import Groq
 from app.core.config import settings
-# LLMService class that provides methods to analyze meeting transcripts and answer questions based on the transcript content using the Groq API.
+
 class LLMService:
     def __init__(self):
         self.client = Groq(api_key=settings.GROQ_API_KEY, http_client=httpx.Client())
