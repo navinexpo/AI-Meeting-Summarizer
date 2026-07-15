@@ -1,15 +1,15 @@
 from pydantic import BaseModel
 from typing import List
-# Model for meeting summary request
+
 class QuestionRequest(BaseModel):
     transcript: str
     question: str
-# Model for action items
+
 class ActionItem(BaseModel):
     task: str
     owner: str
     deadline: str
-# Response model for meeting analysis
+
 class MeetingAnalysisResponse(BaseModel):
     id: str
     summary: str
