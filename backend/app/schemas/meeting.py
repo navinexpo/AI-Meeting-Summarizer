@@ -4,7 +4,7 @@ from typing import List
 class QuestionRequest(BaseModel):
     transcript: str
     question: str
-
+# Model for action items
 class ActionItem(BaseModel):
     task: str
     owner: str
