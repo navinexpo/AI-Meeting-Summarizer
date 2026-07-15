@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List
-
+# Model for meeting summary request
 class QuestionRequest(BaseModel):
     transcript: str
     question: str
