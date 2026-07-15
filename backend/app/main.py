@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.endpoints import router as api_router
-
+# Initialize the FastAPI application with a title and version. This sets up the main application instance that will handle incoming requests and route them to the appropriate endpoints.
 app = FastAPI(title="VoxBrief AI API", version="1.0.0")
 # CORS configuration for local development
 app.add_middleware(
