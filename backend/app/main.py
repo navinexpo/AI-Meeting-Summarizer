@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.endpoints import router as api_router
-# Initialize the FastAPI application with a title and version. This sets up the main application instance that will handle incoming requests and route them to the appropriate endpoints.
+
 app = FastAPI(title="VoxBrief AI API", version="1.0.0")
 # CORS configuration for local development
 app.add_middleware(
@@ -16,7 +16,7 @@ app.include_router(api_router, prefix="/api")
 
 @app.get("/")
 def read_root():
-    # Return a simple status message to indicate that the backend server is running and provide basic information about the project. This endpoint can be used for health checks or to verify that the server is operational.
+   
     return {
         "status": "online",
         "project": "VoxBrief AI Meeting Summarizer",
