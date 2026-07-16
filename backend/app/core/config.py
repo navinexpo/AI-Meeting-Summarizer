@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
-
+# Defile the base directory of the project by resolving the path of the current file and navigating up three levels in the directory structure. This is useful for locating configuration files and other resources relative to the project's root directory.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 class Settings(BaseSettings):
