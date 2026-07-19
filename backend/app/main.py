@@ -16,7 +16,7 @@ app.include_router(api_router, prefix="/api")
 
 @app.get("/")
 def read_root():
-   
+   # Status endpoint to check if the backend server is running
     return {
         "status": "online",
         "project": "VoxBrief AI Meeting Summarizer",
