@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.endpoints import router as api_router
-
+# Initialize the FastAPI app with a title and version
 app = FastAPI(title="VoxBrief AI API", version="1.0.0")
 
 app.add_middleware(
