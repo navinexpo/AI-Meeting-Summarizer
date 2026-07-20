@@ -13,7 +13,7 @@ app.add_middleware(
 )
 # Router for the API endpoints with a prefix of /api
 app.include_router(api_router, prefix="/api")
-
+# Application startup event to print a message when the server starts
 @app.get("/")
 def read_root():
    # Status endpoint to check if the backend server is running
