@@ -6,7 +6,7 @@ from app.core.config import settings
 class LLMService:
     def __init__(self):
         self.client = Groq(api_key=settings.GROQ_API_KEY, http_client=httpx.Client())
-    # Transcript analysis method that takes a transcript text as input and returns a structured JSON object containing a summary, key takeaways, and action items.
+  
     def analyze_transcript(self, transcript_text: str) -> dict:
         prompt = (
             "You are an expert meeting assistant. Analyze the following meeting transcript. "
