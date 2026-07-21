@@ -9,7 +9,7 @@ class ActionItem(BaseModel):
     task: str
     owner: str
     deadline: str
-
+# Key Takeaway model for the meeting analysis response
 class MeetingAnalysisResponse(BaseModel):
     id: str
     summary: str
