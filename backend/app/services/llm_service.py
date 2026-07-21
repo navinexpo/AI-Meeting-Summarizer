@@ -13,7 +13,7 @@ class LLMService:
             "You must return the response strictly as a valid JSON object matching this schema:\n"
             "{  \n"
             "  \"summary\": \"A short high-level overview of the meeting\",\n"
-            "  \"key_takeaways\": [\"point 1\", \"point 2\"],\n"
+            "  \"key_takeaways\": [\"point 1\", \"point 2\"],\n"   
             "  \"action_items\": [\n"
             "    {\"task\": \"task description\", \"owner\": \"person name or Unassigned\", \"deadline\": \"date/time or TBD\"}\n"
             "  ]\n"
@@ -30,7 +30,7 @@ class LLMService:
             response_format={"type": "json_object"},
             temperature=0.2
         )
-       
+       # Extract the raw content from the response and parse it as JSON to return a structured dictionary containing the summary, key takeaways, and action items.
         raw_content = response.choices[0].message.content
         return json.loads(raw_content)
     # Method to answer a user's question based on the provided transcript text. It constructs a system prompt that instructs the LLM to analyze the transcript and provide a direct answer to the user's question, while adhering to specific behavioral guidelines.
