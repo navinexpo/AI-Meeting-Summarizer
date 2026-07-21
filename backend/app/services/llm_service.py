@@ -30,10 +30,10 @@ class LLMService:
             response_format={"type": "json_object"},
             temperature=0.2
         )
-       # Extract the raw content from the response and parse it as JSON to return a structured dictionary containing the summary, key takeaways, and action items.
+      
         raw_content = response.choices[0].message.content
         return json.loads(raw_content)
-    # Method to answer a user's question based on the provided transcript text. It constructs a system prompt that instructs the LLM to analyze the transcript and provide a direct answer to the user's question, while adhering to specific behavioral guidelines.
+
     def ask_question(self, transcript_text: str, question: str) -> str:
    
         SYSTEM_PROMPT = (
@@ -63,5 +63,5 @@ class LLMService:
             model="llama-3.1-8b-instant",
             temperature=0.3
         )
-      # Return the generated response
+     
         return response.choices[0].message.content
