@@ -1,7 +1,7 @@
 import os
 import shutil
 from fastapi import UploadFile
-
+# FileHandler class to handle file operations such as saving and deleting files
 class FileHandler:
     @staticmethod
     def save_temp_file(upload_file: UploadFile, target_dir: str) -> str:
