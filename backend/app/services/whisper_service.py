@@ -10,7 +10,7 @@ class WhisperService:
     def transcribe_audio(self, file_path: str) -> str:
         if not os.path.exists(file_path):
             raise FileNotFoundError("Audio file not found on server")
-        # open the audio file in binary mode and send it to the Groq API for transcription
+        
         with open(file_path, "rb") as audio_file:
             translation = self.client.audio.transcriptions.create(
                 file=audio_file,
