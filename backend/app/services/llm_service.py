@@ -3,10 +3,10 @@ import httpx
 from groq import Groq
 from app.core.config import settings
 
-class LLMService:
+class LLMService:   
     def __init__(self):
         self.client = Groq(api_key=settings.GROQ_API_KEY, http_client=httpx.Client())
-  
+  # Updated analyze_transcript method to return a JSON object instead of a string
     def analyze_transcript(self, transcript_text: str) -> dict:
         prompt = (
             "You are an expert meeting assistant. Analyze the following meeting transcript. "
